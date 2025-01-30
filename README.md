@@ -1,27 +1,80 @@
-# FrontendSistemaAcademico
+# 📚 FRONTEND - SISTEMA ACADÉMICO
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+Este repositorio contiene el frontend del sistema académico, desarrollado con **Angular 17.0.5** y utilizando **Visual Studio Code** como entorno de desarrollo.
 
-## Development server
+La aplicación actúa como cliente tanto de una API **REST** (para operaciones CRUD) como de un servicio **SOAP** (para consultas). Una vez ejecutada, la aplicación estará disponible en:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+🔗 **http://localhost:4200/**
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🚀 1. Descarga del Proyecto
 
-## Build
+Puedes obtener el código fuente de dos maneras:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 📌 Opción 1: Clonar el repositorio con GIT
+```bash
+ git clone https://github.com/mohamarchamorro/frontend-sistema-academico.git
+```
 
-## Running unit tests
+### 📌 Opción 2: Descargar el archivo .ZIP
+1. Accede al repositorio en GitHub.
+2. Descarga el archivo **.ZIP** desde la opción "Code".
+3. Extrae el contenido en la ubicación deseada.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 🖥️ 2. Abrir el Proyecto en Visual Studio Code
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Abre **Visual Studio Code**.
+2. Ve a **File** → **Open Folder**.
+3. Selecciona la carpeta del proyecto descomprimida.
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 📦 3. Instalación de Dependencias
+
+Abre una terminal en la carpeta raiz del proyecto (`frontend-sistema-academico`) y ejecuta:
+```bash
+npm install
+```
+Esto instalará todas las dependencias necesarias.
+
+---
+
+## ▶️ 4. Ejecutar el Proyecto
+
+Para iniciar el servidor de desarrollo y abrir la aplicación en el navegador, ejecuta:
+```bash
+ng serve -o
+```
+
+Esto iniciará la aplicación en `http://localhost:4200/` y abrirá el navegador automáticamente.
+
+---
+
+## 📌 Notas Adicionales
+
+- **Verificar la ruta del Backend:** Si el backend se ejecuta en un puerto distinto al `8080`, debes actualizar las rutas en los servicios correspondientes. Por ejemplo:
+
+  **Antes:**
+  ```typescript
+  URL: string = "http://localhost:8080/api/estudiantes";
+  ```
+  **Después (si el backend está en el puerto 9100):**
+  ```typescript
+  URL: string = "http://localhost:9100/api/estudiantes";
+  ```
+
+- **Requisitos previos:** Asegúrate de tener instalado **Node.js** y **Angular CLI** antes de ejecutar los comandos.
+
+---
+
+## 🎯 Contacto
+Para cualquier consulta o problema, no dudes en crear un issue en el repositorio o contactar al desarrollador.
+
+🚀 ¡Disfruta del desarrollo! 🎉
+
+📌 **Autor:** [Mohamar Chamorro](https://github.com/mohamarchamorro)\
+📌 **Repositorio:** [frontend-sistema-academico](https://github.com/mohamarchamorro/frontend-sistema-academico)
+
