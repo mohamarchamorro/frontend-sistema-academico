@@ -1,0 +1,210 @@
+<div class="card">
+    <div class="card-header text-center bg-success">
+        <h3 class="card-title text-white">Actualizar Estudiante</h3>
+    </div>
+
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit(ngForms)" #ngForms="ngForm">
+
+            <div class="form-group row mb-3">
+                <label class="col-md-2" for="id">ID: </label>
+                <div class="col-md-10">
+                    <input type="text" name="id" class="form-control" [(ngModel)]="estudiante.id" disabled>
+
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-2" for="primer_nombre">Primer Nombre: </label>
+                <div class="col-md-10">
+                    <input type="text" name="primer_nombre" class="form-control" required maxlength="30"
+                        pattern="^[A-Z]+$" [(ngModel)]="estudiante.primer_nombre" #primer_nombre="ngModel">
+
+                </div>
+
+                @if(primer_nombre.invalid && (primer_nombre.dirty || primer_nombre.touched)){
+                @if(primer_nombre.errors!['required']){
+                <li class="alert alert-danger my-2">
+                    El Primer Nombre es requerido
+                </li>
+                }
+
+
+                @if(primer_nombre.errors!['maxlength']){
+                <li class="alert alert-danger my-2">
+                    El Primer Nombre debe tener máximo 30 caracteres
+                </li>
+                }
+
+                @if(primer_nombre.errors!['pattern']){
+                <li class="alert alert-danger my-2">
+                    El Primer Nombre solo permite caracteres de la A a la Z, mayúscula, sin acentos ni Ñ.
+                </li>
+                }
+                }
+
+                @if(errores.primer_nombre){
+                <li class="alert alert-danger my-2">{{errores.primer_nombre}}</li>
+                }
+
+
+
+            </div>
+
+
+            <div class="form-group row my-3">
+                <label class="col-md-2" for="primer_apellido">Primer Apellido: </label>
+                <div class="col-md-10">
+                    <input type="text" name="primer_apellido" class="form-control" required maxlength="30"
+                        pattern="^[A-Z]+$" [(ngModel)]="estudiante.primer_apellido" #primer_apellido="ngModel">
+
+                </div>
+
+                @if(primer_apellido.invalid && (primer_apellido.dirty || primer_apellido.touched)){
+                @if(primer_apellido.errors!['required']){
+                <li class="alert alert-danger my-2">
+                    El Primer Apellido es requerido
+                </li>
+                }
+
+                @if(primer_apellido.errors!['maxlength']){
+                <li class="alert alert-danger my-2">
+                    El Primer Apellido debe tener máximo 30 caracteres
+                </li>
+                }
+
+                @if(primer_apellido.errors!['pattern']){
+                <li class="alert alert-danger my-2">
+                    El Primer Apellido solo permite caracteres de la A a la Z, mayúscula, sin acentos ni Ñ.
+                </li>
+                }
+
+                }
+
+
+                @if(errores.primer_apellido){
+                <li class="alert alert-danger my-2">{{errores.primer_apellido}}</li>
+                }
+
+            </div>
+
+
+
+            <div class="form-group row my-3">
+                <label class="col-md-2" for="nombre">País: </label>
+                <div class="col-md-10">
+
+                    <select name="id_pais" [(ngModel)]="estudiante.id_pais" class="form-select" required
+                        #pais="ngModel">
+                        <option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</option>
+                    </select>
+                </div>
+
+                @if(pais.invalid && (pais.dirty || pais.touched)){
+                @if(pais.errors!['required']){
+                <li class="alert alert-danger my-2">
+                    El Pais es requerido
+                </li>
+                }
+                }
+
+
+                @if(errores.id_pais){
+                <li class="alert alert-danger my-2">{{errores.id_pais}}</li>
+                }
+
+            </div>
+
+
+            <div class="form-group row mb-3">
+                <label class="col-md-2" for="correo_electronico">Correo Electrónico: </label>
+                <div class="col-md-10">
+                    <input type="text" name="correo_electronico" class="form-control"
+                        [(ngModel)]="estudiante.correo_electronico" disabled>
+
+                </div>
+
+            </div>
+
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-success text-white" [disabled]="ngForms.invalid">Actualizar</button>
+            </div>
+
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div class="card my-5">
+    <div class="card-header bg-success">
+        <h4 class="card-title text-white text-center">Matricular Materia</h4>
+    </div>
+
+    <div class="card-body">
+        <form (ngSubmit)="enroll(ngForms)" #ngFormsEnroll="ngForm">
+            <div class="form-group row">
+                <label class="col-md-2">Materia a Matricular: </label>
+                <div class="col-md-6">
+
+                    <select name="id_materia_matricular" [(ngModel)]="id_materia_matricular" class="form-select"
+                        required #materia="ngModel">
+                        <option *ngFor="let materia of materias" [value]="materia.id">{{materia.id+". "+materia.nombre}}</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success btn text-white col-md-3"
+                    [disabled]="ngFormsEnroll.invalid">Matricular</button>
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+
+<div class="card my-3">
+    <div class="card-header bg-success">
+        <h4 class="card-title text-white text-center">Materias Asignadas</h4>
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-striped text-center">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>ACCIONES</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let materia of materiasMatriculadas">
+                    <td>{{materia.id}}</td>
+                    <td>{{materia.nombre}}</td>
+
+                    <td>
+                        <button class="btn btn-sm btn-danger bi bi-trash-fill mx-2"
+                            (click)="unEnroll(materia.id!)"></button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+
+
+    </div>
+
+</div>

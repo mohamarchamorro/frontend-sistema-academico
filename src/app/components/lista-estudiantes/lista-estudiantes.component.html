@@ -1,0 +1,38 @@
+
+<a [routerLink]="['/crear-estudiante']" class="btn btn-lg btn-success mb-3 bi bi-person-plus"> Crear Estudiante</a>
+
+<div>
+    <div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>PRIMER NOMBRE</th>
+                <th>PRIMER APELLIDO</th>
+                <th>PAÍS</th>
+                <th>CORREO ELECTRÓNICO</th>
+                <th>ACCIONES</th>
+
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let estudiante of estudiantes">
+                <td>{{estudiante.id}}</td>
+                <td>{{estudiante.primer_nombre}}</td>
+                <td>{{estudiante.primer_apellido}}</td>
+                <td>{{getPaisNombre(estudiante.id_pais)}}</td>
+                <td>{{estudiante.correo_electronico}}</td>
+
+                <td>
+                    <button class="btn btn-sm btn-success bi bi-eye-fill" [routerLink]="['/estudiantes',estudiante.id]"></button>
+                    <button class="btn btn-sm btn-danger bi bi-trash-fill mx-2" (click)="delete(estudiante.id!)"></button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</div>

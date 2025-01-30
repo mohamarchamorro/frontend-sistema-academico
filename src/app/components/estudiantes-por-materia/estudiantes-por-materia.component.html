@@ -1,0 +1,50 @@
+
+
+<div>
+    <form (ngSubmit)="onSubmit(ngForms)" #ngForms="ngForm">
+        <div class="form-group row">
+            <div class="col-md-5">
+                <input 
+                type="text"
+                name="id"
+                placeholder="Nombre de la materia a consultar"
+                
+                [(ngModel)]="nombre"
+                class="form-control"
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary col-md-1 bi bi-search" [disabled]="ngForms.invalid"> Buscar</button>
+        </div>
+    </form>
+
+    
+    <div class="table-responsive">
+    <table class="table table-striped my-3">
+        <thead>
+            <tr>
+                <th class="text-danger">ID ESTUDIANTE</th>
+                <th class="text-danger">PRIMER NOMBRE</th>
+                <th class="text-danger">PRIMER APELLIDO</th>
+                <th class="text-danger">CORREO ELECTRÓNICO</th>
+                <th>MATERIA</th>
+
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let matricula of matriculas">
+                <td class="text-danger">{{matricula.estudiante?.id}}</td>
+                <td class="text-danger">{{matricula.estudiante?.primer_nombre}}</td>
+                <td class="text-danger">{{matricula.estudiante?.primer_apellido}}</td>
+                <td class="text-danger">{{matricula.estudiante?.correo_electronico}}</td>
+                <td>{{matricula.materia?.nombre}}</td>
+
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</div>
