@@ -55,18 +55,20 @@ Esto iniciará la aplicación en `http://localhost:4200/` y abrirá el navegador
 
 ## 📌 Notas Adicionales
 
+- **Asegúrate de que el backend esté ejecutándose antes de probar las funcionalidades del frontend.**
+
+- Asegúrate de tener instalado **Node.js** y **Angular CLI** antes de ejecutar los comandos.
+
 - **Verificar la ruta del Backend:** Si el backend se ejecuta en un puerto distinto al `8080`, debes actualizar las rutas en los servicios correspondientes. Por ejemplo:
 
   **Antes:**
   ```typescript
   URL: string = "http://localhost:8080/api/estudiantes";
   ```
-  **Después (si el backend está en el puerto 9100):**
+  **Después (por ejemplo, si el backend está en el puerto 9100):**
   ```typescript
   URL: string = "http://localhost:9100/api/estudiantes";
   ```
-
-- **Requisitos previos:** Asegúrate de tener instalado **Node.js** y **Angular CLI** antes de ejecutar los comandos.
 
 ---
 
